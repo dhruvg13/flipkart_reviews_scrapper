@@ -24,6 +24,7 @@ def index():
             flipkart_html = bs(flipkartPage, "html.parser")
             x = flipkart_html.findAll("div", {"class": "_1AtVbE col-12-12"})
             del x[0:3]
+            cnt = 0
             for i in x:
                 productLink = "https://www.flipkart.com" + x.div.div.div.a['href']
                 prodRes = requests.get(productLink)
@@ -55,7 +56,8 @@ def index():
                         custComment = "no Comment content"
                         logging.info(custComment)
                     
-                    mydict = {"Product": "searchString", "Name": name, "Rating": rating, "CommentHead": commentHead, "Comment": custComment}
+                    cnt = cnt + 1
+                    mydict = {"S.no": cnt, "Product": "searchString", "Name": name, "Rating": rating, "CommentHead": commentHead, "Comment": custComment}
                     reviews.append(mydict)
 
             for data in reviews:
