@@ -1,4 +1,5 @@
-flask
-flask_cors
-requests
-bs4
+Requirements
+Python 3.x
+Flask
+Requests
+Beautiful Soup 4
